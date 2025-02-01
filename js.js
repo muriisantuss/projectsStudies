@@ -1,20 +1,62 @@
-const players = {
-  portuguesePlayer: "Cristino Ronaldo",
-  brazilianPlayer: "Neymar JR",
-  argentineanPlayer: "Messi",
-  
+let usdInput = document.querySelector("#usd")
+let brlInput = document.querySelector("#brl")
+
+let dolar = 6
+
+usdInput.addEventListener("keyup", () => {
+  convert("usd-to-brl")
+})
+
+brlInput.addEventListener("keyup", () => {
+  convert("brl-to-usd")
+})
+
+usdInput.addEventListener("blur", () => {
+  usdInput.value = formatCurrency(usdInput.value)
+})
+
+brlInput.addEventListener("blur", () => {
+  brlInput.value = formatCurrency(brlInput.value)
+})
+
+usdInput.value = "1000,00"
+
+function formatCurrency(value) {
+  let fixedValue = fixValue(value)
+  let options = {
+    useGrouping: false,
+    minimumFractionDigits: 2,
+  }
+  let formatter = new Intl.NumberFormat("pt-BR", options)
+  return formatter.format(fixedValue)
 }
 
-console.log("Football players: ")
-for (ball in players) {
-  console.log("-", players[ball])
-}
-console.log()
+function fixValue(value) {
+  let fixedValue = value.replace(",", ".")
+  let floatValue = parseFloat(fixedValue)
+  if (floatValue == NaN) {
+    floatValue = 0
+  }
 
-const singer = ["Ariana Grande", "Justin Bieber", "SZA"]
-
-console.log("Famous singers: ")
-for (sing of singer) {
-  console.log("-", sing)
+  return floatValue
 }
-console.log()
+
+function convert(type) {
+  if (type == "usd-to-brl") {
+    let value = fixValue(usdInput.value)
+
+    let result = value * dolar
+    result = result.toFixed(2)
+
+    brlInput.value = formatCurrency(result)
+  }
+
+  if (type == "brl-to-usd") {
+    let value = fixValue(brlInput.value)
+
+    let result = value / dolar
+    result = result.toFixed(2)
+
+    usdInput.value = formatCurrency(result)
+  }
+}
