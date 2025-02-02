@@ -12,14 +12,22 @@ brlInput.addEventListener("keyup", () => {
 })
 
 usdInput.addEventListener("blur", () => {
+  if (usdInput.value == '') {
+    usdInput.value = 0
+    brlInput.value = formatCurrency(usdInput.value)
+
+  }
   usdInput.value = formatCurrency(usdInput.value)
 })
 
 brlInput.addEventListener("blur", () => {
+  if (brlInput.value == '') {
+    brlInput.value = 0
+    usdInput.value = formatCurrency(brlInput.value)
+  }
   brlInput.value = formatCurrency(brlInput.value)
 })
 
-usdInput.value = "1000,00"
 
 function formatCurrency(value) {
   let fixedValue = fixValue(value)
@@ -27,7 +35,10 @@ function formatCurrency(value) {
     useGrouping: false,
     minimumFractionDigits: 2,
   }
+
+
   let formatter = new Intl.NumberFormat("pt-BR", options)
+
   return formatter.format(fixedValue)
 }
 
@@ -44,7 +55,7 @@ function fixValue(value) {
 function convert(type) {
   if (type == "usd-to-brl") {
     let value = fixValue(usdInput.value)
-
+    
     let result = value * dolar
     result = result.toFixed(2)
 
