@@ -1,5 +1,9 @@
 const ajax = new XMLHttpRequest()
 
+$(document).ready(function () {
+  $('#setCep').mask('00000-000');
+});
+
 let typedCep = document.querySelector(`#setCep`)
 let sendCep = document.querySelector(`#sendCep`)
 let body = document.getElementsByTagName("body")
@@ -24,17 +28,12 @@ typedCep.addEventListener("blur", () => {
 
 sendCep.addEventListener("click", () => {
   if (typedCep.value == "") {
-    msg.textContent = "Digite um número!";
+    msg.textContent = "Por favor, digite o CEP.";
     return;
   }
 
-  if (typedCep.value.length < 8) {
-    msg.textContent = "Está faltando número!";
-    return;
-  }
-
-  if (!/^\d{8}$/.test(typedCep.value)) {
-    msg.textContent = "CEP inválido! Apenas números são permitidos.";
+  if (typedCep.value.length < 9) {
+    msg.textContent = "O CEP deve ter 8 dígitos. Verifique e tente novamente.";
     return;
   }
 
