@@ -55,7 +55,7 @@ function fixValue(value) {
 function convert(type) {
   if (type == "usd-to-brl") {
     let value = fixValue(usdInput.value)
-    
+
     let result = value * dolar
     result = result.toFixed(2)
 

@@ -72,6 +72,8 @@ button:hover {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
   padding: 1rem;
+
+  position: relative;
 }
 
 div p {
@@ -79,6 +81,8 @@ div p {
   text-align: left;
   color: green;
   margin-left: 1rem;
+  margin-top: 2rem;
+
 }
 
 div p strong {
@@ -91,6 +95,24 @@ div p strong {
 
 .success {
   color: green;
+}
+.houseButton {
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+}
+
+.redButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: green;
+  border-radius: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  padding: 0 0.7rem;
+  color: rgb(255, 255, 255);
 }
 
 #msg {

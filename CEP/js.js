@@ -9,9 +9,19 @@ let sendCep = document.querySelector(`#sendCep`)
 let body = document.getElementsByTagName("body")
 let header = document.querySelector("#header")
 let msg = document.querySelector("#msg")
+
 document.querySelector("#textUp").classList.remove("ocult")
 document.querySelector("#textDown").classList.add("ocult")
 header.style.color = ""
+
+document.querySelector(".redButton").addEventListener("click", () => {
+  document.querySelector("body").style.backgroundColor = "";
+  document.querySelector("body").style.color = "";
+  header.textContent = "Encontre o seu endereço!";
+  document.querySelector("#textDown").classList.add("ocult");
+  document.querySelector("#textUp").classList.remove("ocult")
+  msg.textContent = "";
+});
 
 
 typedCep.addEventListener("focus", () => {
@@ -68,6 +78,7 @@ sendCep.addEventListener("click", () => {
 
     header.textContent = "Parabéns, você o encontrou!";
     header.style.color = "green";
+    typedCep.value = ""
     document.querySelector("#textDown").classList.remove("ocult");
     document.querySelector("#textUp").classList.add("ocult");
   };
