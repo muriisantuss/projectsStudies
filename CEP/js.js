@@ -20,20 +20,24 @@ document.querySelector(".redButton").addEventListener("click", () => {
   header.textContent = "Encontre o seu endereço!";
   document.querySelector("#textDown").classList.add("ocult");
   document.querySelector("#textUp").classList.remove("ocult")
+  document.querySelector("#textUp").classList.add("animateUp");
+  header.classList.remove("animate");
+  header.classList.add("animateUp");
   msg.textContent = "";
 });
-
 
 typedCep.addEventListener("focus", () => {
   document.querySelector("body").style.backgroundColor = "#272727";
   document.querySelector("body").style.color = "#b5b5b5";
   document.querySelector("#textDown").classList.add("ocult")
+  typedCep.classList.add("animateUp");
   msg.textContent = ""
 })
 
 typedCep.addEventListener("blur", () => {
   document.querySelector("body").style.backgroundColor = "";
   document.querySelector("body").style.color = "";
+  typedCep.classList.remove("animateUp");
 })
 
 sendCep.addEventListener("click", () => {
@@ -80,6 +84,8 @@ sendCep.addEventListener("click", () => {
     header.style.color = "green";
     typedCep.value = ""
     document.querySelector("#textDown").classList.remove("ocult");
+    document.querySelector("#textDown").classList.add("animate");
+    header.classList.add("animate");
     document.querySelector("#textUp").classList.add("ocult");
   };
 });

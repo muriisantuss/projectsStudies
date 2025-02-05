@@ -82,7 +82,6 @@ div p {
   color: green;
   margin-left: 1rem;
   margin-top: 2rem;
-
 }
 
 div p strong {
@@ -119,4 +118,43 @@ div p strong {
   font: bold 1.25rem/25px "Segoe UI", sans-serif;
   text-align: center;
   color: red;
+}
+
+.animateUp {
+  animation: scale 0.4s both;
+}
+
+@keyframes scale {
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animateInput {
+  animation: scale 0.4s both;
+}
+
+@keyframes scale {
+  50% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate {
+  animation: slide-in 0.4s both;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
