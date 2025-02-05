@@ -21,6 +21,7 @@ document.querySelector(".redButton").addEventListener("click", () => {
   document.querySelector("#textDown").classList.add("ocult");
   document.querySelector("#textUp").classList.remove("ocult")
   document.querySelector("#textUp").classList.add("animateUp");
+  header.style.color = ""
   header.classList.remove("animate");
   header.classList.add("animateUp");
   msg.textContent = "";
@@ -29,10 +30,9 @@ document.querySelector(".redButton").addEventListener("click", () => {
 typedCep.addEventListener("keydown", () => {
   typedCep.classList.add("animateUp");
 
-  // Remover a animação após um curto período para poder reaplicar
   setTimeout(() => {
     typedCep.classList.remove("animateUp");
-  }, 300); // Ajuste o tempo conforme necessário
+  }, 300);
 });
 
 typedCep.addEventListener("focus", () => {

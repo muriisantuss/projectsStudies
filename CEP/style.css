@@ -71,25 +71,52 @@ button:hover {
 }
 
 .textDown {
+  height: auto;
+  width: auto;
   border: 1px solid #ccc;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 1rem;
-  padding: 1rem;
-
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
   position: relative;
+  background-color: white;
+  max-width: 400px;
+  margin: auto;
+}
+
+.redButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007b33;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  padding: 0.2rem 0.8rem;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  transition: background 0.3s ease-in-out;
+}
+
+.redButton:hover {
+  background-color: #005a25;
 }
 
 div p {
-  font: normal 1.25rem/25px "Segoe UI", sans-serif;
+  font: normal 1.1rem/28px "Segoe UI", sans-serif;
   text-align: left;
-  color: green;
+  color: #333;
   margin-left: 1rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-inline: auto;
 }
 
 div p strong {
-  color: #272727;
+  color: #000;
 }
 
 .ocult {
@@ -98,24 +125,6 @@ div p strong {
 
 .success {
   color: green;
-}
-.houseButton {
-  position: absolute;
-  right: 0.75rem;
-  top: 0.75rem;
-}
-
-.redButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: green;
-  border-radius: 0.4rem;
-  font-size: 0.7rem;
-  font-weight: 900;
-  letter-spacing: 1px;
-  padding: 0 0.7rem;
-  color: rgb(255, 255, 255);
 }
 
 #msg {
