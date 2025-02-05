@@ -82,6 +82,7 @@ div p {
   color: green;
   margin-left: 1rem;
   margin-top: 2rem;
+  margin-inline: auto;
 }
 
 div p strong {

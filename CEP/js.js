@@ -26,6 +26,15 @@ document.querySelector(".redButton").addEventListener("click", () => {
   msg.textContent = "";
 });
 
+typedCep.addEventListener("keydown", () => {
+  typedCep.classList.add("animateUp");
+
+  // Remover a animação após um curto período para poder reaplicar
+  setTimeout(() => {
+    typedCep.classList.remove("animateUp");
+  }, 300); // Ajuste o tempo conforme necessário
+});
+
 typedCep.addEventListener("focus", () => {
   document.querySelector("body").style.backgroundColor = "#272727";
   document.querySelector("body").style.color = "#b5b5b5";
@@ -83,9 +92,10 @@ sendCep.addEventListener("click", () => {
     header.textContent = "Parabéns, você o encontrou!";
     header.style.color = "green";
     typedCep.value = ""
-    document.querySelector("#textDown").classList.remove("ocult");
     document.querySelector("#textDown").classList.add("animate");
     header.classList.add("animate");
+    document.querySelector("#textDown").classList.remove("ocult");
     document.querySelector("#textUp").classList.add("ocult");
+
   };
 });
