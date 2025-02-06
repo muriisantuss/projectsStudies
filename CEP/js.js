@@ -4,52 +4,55 @@ $(document).ready(function () {
   $('#setCep').mask('00000-000');
 });
 
-let typedCep = document.querySelector(`#setCep`)
-let sendCep = document.querySelector(`#sendCep`)
-let body = document.getElementsByTagName("body")
-let header = document.querySelector("#header")
-let msg = document.querySelector("#msg")
+const typedCep = document.querySelector(`#setCep`)
+const btnSendCep = document.querySelector(`#btnSendCep`)
+const body = document.body
+const header = document.querySelector("#header")
+const msg = document.querySelector("#msg")
+const textDown = document.querySelector('#textDown');
+const btnReset = document.querySelector('.redButton');
 
-document.querySelector("#textUp").classList.remove("ocult")
-document.querySelector("#textDown").classList.add("ocult")
+
+document.querySelector("#textUp").classList.remove("hidden")
+document.querySelector("#textDown").classList.add("hidden")
 header.style.color = ""
 
 document.querySelector(".redButton").addEventListener("click", () => {
   document.querySelector("body").style.backgroundColor = "";
   document.querySelector("body").style.color = "";
   header.textContent = "Encontre o seu endereço!";
-  document.querySelector("#textDown").classList.add("ocult");
-  document.querySelector("#textUp").classList.remove("ocult")
-  document.querySelector("#textUp").classList.add("animateUp");
+  document.querySelector("#textDown").classList.add("hidden");
+  document.querySelector("#textUp").classList.remove("hidden")
+  document.querySelector("#textUp").classList.add("animate-scale");
   header.style.color = ""
   header.classList.remove("animate");
-  header.classList.add("animateUp");
+  header.classList.add("animate-scale");
   msg.textContent = "";
 });
 
 typedCep.addEventListener("keydown", () => {
-  typedCep.classList.add("animateUp");
+  typedCep.classList.add("animate-scale");
 
   setTimeout(() => {
-    typedCep.classList.remove("animateUp");
+    typedCep.classList.remove("animate-scale");
   }, 300);
 });
 
 typedCep.addEventListener("focus", () => {
   document.querySelector("body").style.backgroundColor = "#272727";
   document.querySelector("body").style.color = "#b5b5b5";
-  document.querySelector("#textDown").classList.add("ocult")
-  typedCep.classList.add("animateUp");
+  document.querySelector("#textDown").classList.add("hidden")
+  typedCep.classList.add("animate-scale");
   msg.textContent = ""
 })
 
 typedCep.addEventListener("blur", () => {
   document.querySelector("body").style.backgroundColor = "";
   document.querySelector("body").style.color = "";
-  typedCep.classList.remove("animateUp");
+  typedCep.classList.remove("animate-scale");
 })
 
-sendCep.addEventListener("click", () => {
+btnSendCep.addEventListener("click", () => {
   if (typedCep.value == "") {
     msg.textContent = "Por favor, digite o CEP.";
     return;
@@ -94,8 +97,8 @@ sendCep.addEventListener("click", () => {
     typedCep.value = ""
     document.querySelector("#textDown").classList.add("animate");
     header.classList.add("animate");
-    document.querySelector("#textDown").classList.remove("ocult");
-    document.querySelector("#textUp").classList.add("ocult");
+    document.querySelector("#textDown").classList.remove("hidden");
+    document.querySelector("#textUp").classList.add("hidden");
 
   };
 });
