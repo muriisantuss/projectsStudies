@@ -9,26 +9,25 @@ const btnSendCep = document.querySelector(`#btnSendCep`)
 const body = document.body
 const header = document.querySelector("#header")
 const msg = document.querySelector("#msg")
+const textUp = document.querySelector('#textUp');
 const textDown = document.querySelector('#textDown');
 const btnReset = document.querySelector('.redButton');
 
+function resetUI() {
+  header.textContent = 'Encontre o seu endereço!';
+  body.style.backgroundColor = '';
+  body.style.color = '';
+  msg.textContent = '';
+  textUp.classList.remove('hidden');
+  textUp.classList.add('animate-scale');
+  textDown.classList.add('hidden');
+  header.classList.remove('animate');
+  header.classList.add('animate-scale');
+  header.style.color = "";
+}
 
-document.querySelector("#textUp").classList.remove("hidden")
-document.querySelector("#textDown").classList.add("hidden")
-header.style.color = ""
+btnReset.addEventListener('click', resetUI);
 
-document.querySelector(".redButton").addEventListener("click", () => {
-  document.querySelector("body").style.backgroundColor = "";
-  document.querySelector("body").style.color = "";
-  header.textContent = "Encontre o seu endereço!";
-  document.querySelector("#textDown").classList.add("hidden");
-  document.querySelector("#textUp").classList.remove("hidden")
-  document.querySelector("#textUp").classList.add("animate-scale");
-  header.style.color = ""
-  header.classList.remove("animate");
-  header.classList.add("animate-scale");
-  msg.textContent = "";
-});
 
 typedCep.addEventListener("keydown", () => {
   typedCep.classList.add("animate-scale");
