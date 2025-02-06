@@ -12,26 +12,28 @@
         <h1 id="header">Encontre o seu endereço!</h1>
       </header>
 
-      <section>
-        <div id="textUp" class="">
-          <label id="label">CEP</label>
-          <input
-            placeholder="Digite seu cep: "
-            id="setCep"
-            type="text"
-            maxlength="8"
-          />
-          <button id="sendCep">Buscar!</button>
-          <p id="msg"></p>
-        </div>
-        <div id="textDown" class="textDown ocult">
-          <button class="redButton">Fechar</button>
-          <p id="getCep"></p>
-        </div>
+      <section id="textUp">
+        <label for="setCep">CEP</label>
+        <input
+          placeholder="Digite seu CEP"
+          id="setCep"
+          type="search"
+          aria-describedby="msg"
+        />
+        <button id="sendCep">Buscar!</button>
+        <p id="msg" role="alert"></p>
       </section>
+
+      <article id="textDown" class="textDown hidden">
+        <header>
+          <button class="redButton">Fechar</button>
+        </header>
+        <p id="getCep"></p>
+      </article>
     </main>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script src="js.js"></script>
+    <script src="js.js" defer></script>
   </body>
 </html>
