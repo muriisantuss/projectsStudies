@@ -82,5 +82,8 @@ btnSendCep.addEventListener("click", () => {
       textDown.classList.remove('hidden');
       textUp.classList.add('hidden');
     })
-
+    .catch(() => {
+      msg.textContent = 'Erro ao buscar CEP. Tente novamente mais tarde.';
+      msg.style.color = 'red';
+    });
 });
